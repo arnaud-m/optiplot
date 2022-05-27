@@ -1,11 +1,6 @@
 #' Horowitz and Sahni (HS) algorithm for the partition problem.
 #'
-# #' @inheritParams PartGetCapa
-#'
-#'  http://www.sc-square.org/CSA/workshop2-papers/RP3-FinalVersion.pdf
-# #' @section References:
-# #' Horowitz, E., and Sahni, S. 1974. Computing partitions with applications to the knapsack problem.
-#' Journal of the ACM 21(2):277-292.
+#' @export
 #'
 BordaCount <- function(data, instance, algorithm, measures) {
     ## Rank according to the measures

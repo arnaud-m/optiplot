@@ -1,7 +1,7 @@
 #' The function uses the cross-classifying two factors to build a contingency table of the counts at each combination of factor levels for two subsets of the data.
 #'
 #'
-#'
+#' @export
 #' @examples
 #' Draw <- function(x) {grid::grid.newpage();grid::grid.draw(x)}
 #'
@@ -53,5 +53,4 @@ CrossTable <- function(data, x, y = NA, colA = "a", colI = "i", colS = "s", cols
     ## Simplify the results if possible
     if(length(res) == 1) return(res[[1]])
     else return(res)
-
 }
