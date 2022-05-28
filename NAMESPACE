@@ -3,4 +3,5 @@
 export(BordaCount)
 export(CrossTable)
 export(GenerateOptiData)
+export(PlotScatterRatios)
 export(Rank)

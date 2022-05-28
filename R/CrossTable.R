@@ -1,5 +1,13 @@
-#' The function uses the cross-classifying two factors to build a contingency table of the counts at each combination of factor levels for two subsets of the data.
+#' The function uses the cross-classifying factors to build a contingency table of the counts at each combination of factor levels for two subsets of the data.
 #'
+#' @param data data frame of benchmarks results.
+#' @param x the identifier of an algorithm.
+#' @param y the identifier of an algorithm (optional).
+#' @param colA name of the column with the algorithm identifiers.
+#' @param colI name of the column with the instance identifiers.
+#' @param colS name of the column with the execution status.
+#' @param cols logical, or column names for configuring the frame content.
+#' @param tableGrob logical. Configure the table grob result.
 #'
 #' @export
 #' @examples
@@ -27,6 +35,7 @@ CrossTable <- function(data, x, y = NA, colA = "a", colI = "i", colS = "s", cols
     res <-list(table = ct)
     ## Add the merged data frame to the results if requested
     if(!is.logical(cols) || cols) {
+        ## TODO frame -> data ?
         res <- append(res, list(frame = df))
     }
 

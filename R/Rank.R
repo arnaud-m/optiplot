@@ -4,6 +4,7 @@
 #' Missing values (‘NA’s) are put last, but their ranks are not averaged.
 #'
 #' @param x a vector, list, or data frame.
+#' @param decreasing logical. Should the ranking be increasing or decreasing?
 #'
 #' @return A numeric vector of the same length as ‘x’ without names.
 #' The vector is of double type because the ranking use the average method (whether or not there are any ties).

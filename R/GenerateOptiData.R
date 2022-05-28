@@ -5,7 +5,7 @@
 #' * `i` the instance identifier
 #' * `s` the solving status (answer of the algorithm for the instance)
 #' * `o` the objective value
-#' * `ti` the i-th measures for the execution of the algorithm.
+#' * `mi` the i-th measures for the execution of the algorithm.
 #'
 #' @param n number of algorithms
 #' @param m number of instances
@@ -52,7 +52,7 @@ GenerateOptiData <- function(n = 5, m = 5, p = 1, t = 100, o = 100, pSat = 0.75,
     ## Generate measures
     if(p >= 1) {
         mat <- matrix(sample.int(t, nrow(df) * p, replace = TRUE), ncol = p)
-        colnames(mat) <- paste0("t", seq(p))
+        colnames(mat) <- paste0("m", seq(p))
         df <- cbind(df, mat)
     }
     return(df)
