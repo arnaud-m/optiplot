@@ -16,6 +16,8 @@
 #' @param pOpt probability of an OPT answer if the instance is SAT
 #' @param pUnknown probability of an UNK answer
 #'
+#' @return a data frame with the specified columns.
+#'
 #' @export
 #' @examples
 #' GenerateOptiData()

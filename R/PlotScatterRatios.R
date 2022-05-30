@@ -8,6 +8,7 @@
 #' @param colX name of the column with the measure used for the x-axis.
 #' @param colY name of the column with the measure used for the y-axis.
 #'
+#' @return graphics object
 #' @export
 #' @examples
 #' data <- GenerateOptiData(n = 3, m = 10, p = 2)

@@ -9,6 +9,8 @@
 #' @param cols logical, or column names for configuring the frame content.
 #' @param tableGrob logical. Configure the table grob result.
 #'
+#' @return the cross table or a list containing the cross table, the merged data frame, and a table grob.
+#'
 #' @export
 #' @examples
 #' Draw <- function(x) {grid::grid.newpage();grid::grid.draw(x)}

@@ -8,6 +8,7 @@
 #'
 #' @return A numeric vector of the same length as ‘x’ without names.
 #' The vector is of double type because the ranking use the average method (whether or not there are any ties).
+#'
 #' @section References:
 #' https://en.wikipedia.org/wiki/Ranking
 #' https://stackoverflow.com/a/27036534

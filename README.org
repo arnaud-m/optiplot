@@ -1,0 +1,64 @@
+#+STARTUP: overview
+#+STARTUP: hidestars
+#+TITLE:  Package optiplot
+[[https://opensource.org/licenses/MIT][https://img.shields.io/badge/License-MIT-yellow.svg]]
+* Description
+
+  The optiplot package provides a collection of functions for the analysis of optimization benchmarks.
+
+* Prerequisites
+  This project works on 32 bits and 64 bits environment.
+  This project requires:
+
+  - [[http://cran.r-project.org/][R]] 4.0+
+  - Downloaded and installed via the R function ~install.packages~.
+    - [[https://dplyr.tidyverse.org/][dplyr]]: grammar for data manipulation.
+    - [[https://ggplot2.tidyverse.org/][ggplot2]]: system for declaratively creating graphics.
+    - [[https://cran.r-project.org/web/packages/gridExtra/index.html][gridExtra]]: miscellaneous functions for "Grid" graphics.
+    - [[https://cran.r-project.org/web/packages/devtools/index.html][devtools]]: tools to make developing R packages easier (Build and Install only).
+
+* Installing
+** From Github
+
+   Install directly from github without downloading a local copy the project.
+   #+BEGIN_SRC R
+     ## install.packages("devtools") # if needed
+     devtools::install_github("arnaud-m/optiplot")
+   #+END_SRC
+
+** From Source
+
+   Download a local copy of the project, open a R session in the project directory, and execute.
+   #+BEGIN_SRC R
+     ## install.packages("devtools") # if needed
+     devtools::install()
+   #+END_SRC
+   Check the [[https://rawgit.com/rstudio/cheatsheets/main/package-development.pdf][devtools Cheat Sheet]].
+
+* Executing
+
+ Once the project has been installed (see "Installing"), execute the example of the one of the functions.
+#+BEGIN_SRC R
+  library(optiplot)
+  example(CrossTable)
+#+END_SRC
+
+* Documentation
+
+  Look for general information about the package in the R console.
+   #+BEGIN_SRC R
+     library(help=optiplot)
+   #+END_SRC
+
+   Look for the package documentation in the R console.
+   #+BEGIN_SRC R
+     library(optiplot)
+     ?optiplot
+   #+END_SRC
+
+
+* License
+
+Copyright (c) 2022, Arnaud Malapert, Université Côte d’Azur, CNRS, I3S, France
+
+This software is distributed under a MIT License.
