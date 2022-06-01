@@ -9,8 +9,8 @@
 #' @param lwd integer, linewidth of the plot
 #' @return graphics object
 #'
+#' @section References:
 #'  http://www.sc-square.org/CSA/workshop2-papers/RP3-FinalVersion.pdf
-# #' @section References:
 #'
 #' @export
 #' @examples
