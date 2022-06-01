@@ -9,8 +9,8 @@ test_that("Generate optimization data", {
     expect_equal(length(unique(df$a)), n)
     expect_equal(length(unique(df$i)), m)
     expect_true(all( is.na(df$o) || (df$o >= 0 && df$o <= o)))
-    expect_true(all( df$t1 >= 0 && df$t1 <= t))
-    expect_true(all( df$t2 >= 0 && df$t2 <= t))
+    expect_true(all( df$m1 >= 0 && df$m1 <= t))
+    expect_true(all( df$m2 >= 0 && df$m2 <= t))
 })
 
 test_that("Generate optimization data (no UNSAT answer)", {

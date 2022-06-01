@@ -23,15 +23,15 @@ BordaCount <- function(data, colI, colA, cols) {
 
     ## Compute the ranking for each colI
     x <- data %>%
-        dplyr::group_split(across(all_of(colI))) %>%
+        group_split(across(all_of(colI))) %>%
         purrr::map_dfr( ~  Ranking(.x))
     ## print(x)
 
     ## Sum the ranks for each algorithm
     y <- x %>%
-        dplyr::group_by(across(all_of(colA))) %>%
-        dplyr::summarise(count = sum(rank)) %>%
-        dplyr::arrange(desc(count))
+        group_by(across(all_of(colA))) %>%
+        summarise(count = sum(rank)) %>%
+        arrange(desc(count))
 
     return(y)
 }
