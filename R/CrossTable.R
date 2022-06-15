@@ -13,8 +13,15 @@
 #'
 #' @export
 #' @examples
-#' Draw <- function(x) {grid::grid.newpage();grid::grid.draw(x)}
 #'
+#' df <- expand.grid(a =c("A", "B", "C") , i = c("a", "b"), s = as.factor(c("OPT", "SAT")), t = 1)
+#' ct <- CrossTable(df, x = "A", y = "B")
+#'
+#' ct <- CrossTable(df, "A", cols = "t", tableGrob = TRUE)
+#' print(ct$table)
+#' print(ct$frame)
+#' Draw <- function(x) {grid::grid.newpage();grid::grid.draw(x)}
+#' Draw(ct$grob)
 CrossTable <- function(data, x, y = NA, colA = "a", colI = "i", colS = "s", cols = FALSE, tableGrob = FALSE) {
     ## Select columns for merging
     ind <- c(colA, colI, colS)
@@ -51,7 +58,8 @@ CrossTable <- function(data, x, y = NA, colA = "a", colI = "i", colS = "s", cols
         ## Build the table
         content <- gridExtra::tableGrob(ct, theme = th)
         ## Add additional headers
-        rheader <- gridExtra::tableGrob(data.frame(ct[1, 1], ct[1, 2]), rows=NULL, cols=c(x, namey))
+        ## FIXME rheader <- gridExtra::tableGrob(data.frame(ct[1, 1], ct[1, 2]), rows=NULL, cols=c(x, namey))
+        rheader <- gridExtra::tableGrob(data.frame(0, 0), rows=NULL, cols=c(x, namey))
         tg <- gridExtra::gtable_combine(rheader[1, ], content, along=2)
         ## Update the layout so that the new row header spans multiple columns
         tg$widths <- rep(max(tg$widths), length(tg$widths))
