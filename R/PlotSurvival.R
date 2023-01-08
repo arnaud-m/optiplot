@@ -16,14 +16,14 @@
 #' @examples
 #' df <- data.frame( algorithm = c("a", "b", "c"), time = sample.int(100, 120, replace = TRUE))
 # #' PlotSurvival(df, "algorithm", "time")
-PlotSurvival <- function(data, group, measure, useBW = FALSE, useDefaultTheme = TRUE, lwd = 1) {
+PlotSurvival <- function(data, colG, colM, useBW = FALSE, useDefaultTheme = TRUE, lwd = 1) {
     x <- data %>%
-        group_by(across(all_of(group))) %>%
-        arrange(across(all_of(measure))) %>%
+        group_by(across(all_of(colG))) %>%
+        arrange(across(all_of(colM))) %>%
         mutate(Count = row_number())
 
-    if(useBW) plot <- ggplot(x) + geom_step(aes_string(x= measure, y="Count", linetype=group), lwd = lwd)
-    else plot <- ggplot(x) + geom_step(aes_string(x=measure, y="Count", linetype=group, color=group), lwd = lwd)
+    if(useBW) plot <- ggplot(x) + geom_step(aes_string(x= colM, y="Count", linetype=colG), lwd = lwd)
+    else plot <- ggplot(x) + geom_step(aes_string(x=colM, y="Count", linetype=colG, color=colG), lwd = lwd)
     if(useDefaultTheme) {
         plot <- plot + theme_bw() +
             theme(text = element_text(size=30), legend.position="bottom") +
