@@ -22,6 +22,7 @@
 #' @examples
 #' GenerateOptiData()
 #' GenerateOptiData( p = 0, pSat = 1)
+#' GenerateOptiData(n = 3, m = 10, pUnknown=0)
 GenerateOptiData <- function(n = 5, m = 5, p = 1, t = 100, o = 100, pSat = 0.75, pOpt = 0.25, pUnknown = 0.25) {
     ## Generate pairs (algorithm, instance)
     df <- expand.grid(

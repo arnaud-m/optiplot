@@ -7,19 +7,20 @@
 #' @inheritParams CrossTable
 #' @param colX name of the column with the measure used for the x-axis.
 #' @param colY name of the column with the measure used for the y-axis.
+#' @param minXY the minimal value of the numerator and denominator of a ratio.
 #'
 #' @return graphics object
 #' @export
 #' @examples
 #' data <- GenerateOptiData(n = 3, m = 10, p = 2)
-#' PlotScatterRatios(data, "A", colX = "m1", colM2 = "m2")
-PlotScatterRatios <- function(data, x, y = NA, colX, colY, colA = "a", colI = "i", colS = "s") {
+#' PlotScatterRatios(data, "A", colX = "m1", colY = "m2")
+PlotScatterRatios <- function(data, x, y = NA, colX, colY, colA = "a", colI = "i", colS = "s", minXY = -Inf)  {
     ## Merge data and compute the cross table
     li <- CrossTable(data, x, y, colA, colI, colS, cols = c(colA, colX, colY), tableGrob = TRUE)
     df <- li$frame
 
     ## Compute ratio for each dimension of the plot
-    GetRatios <- function(colM) df[ , paste0(colM, ".x")] / df[ , paste0(colM, ".y")]
+    GetRatios <- function(colM) pmax(df[ , paste0(colM, ".x")], minXY) / pmax(df[ , paste0(colM, ".y")], minXY)
     df[ , colX] <- GetRatios(colX)
     df[ , colY] <- GetRatios(colY)
     df[ , colA] <- df[ , paste0(colA, ".y")]
@@ -32,7 +33,6 @@ PlotScatterRatios <- function(data, x, y = NA, colX, colY, colA = "a", colI = "i
     }
     xlim <- GetLimits(colX)
     ylim <- GetLimits(colY)
-
     ## Create the plot
     if(is.character(y)) {
         plot <- ggplot(df, aes_string(x= colX, y= colY))  #, shape=namei, color=namej)) +
