@@ -8,9 +8,9 @@ test_that("Generate optimization data", {
     expect_equal(nrow(df), n * m)
     expect_equal(length(unique(df$a)), n)
     expect_equal(length(unique(df$i)), m)
-    expect_true(all( is.na(df$o) || (df$o >= 0 && df$o <= o)))
-    expect_true(all( df$m1 >= 0 && df$m1 <= t))
-    expect_true(all( df$m2 >= 0 && df$m2 <= t))
+    expect_true(all( is.na(df$o) | (df$o >= 0 & df$o <= o)))
+    expect_true(all( df$m1 >= 0 & df$m1 <= t))
+    expect_true(all( df$m2 >= 0 & df$m2 <= t))
 })
 
 test_that("Generate optimization data (no UNSAT answer)", {
@@ -24,7 +24,7 @@ test_that("Generate optimization data (no UNSAT answer)", {
     expect_equal(length(unique(df$a)), n)
     expect_equal(length(unique(df$i)), m)
     expect_true(all( df$s != "UNSAT"))
-    expect_true(all( is.na(df$o) || (df$o >= 0 && df$o <= o)))
+    expect_true(all( is.na(df$o) | (df$o >= 0 & df$o <= o)))
 })
 
 test_that("Generate optimization data (only OPT answers)", {
@@ -38,7 +38,7 @@ test_that("Generate optimization data (only OPT answers)", {
     expect_equal(length(unique(df$a)), n)
     expect_equal(length(unique(df$i)), m)
     expect_true(all( df$s == "OPT"))
-    expect_true(all( is.na(df$o) || (df$o >= 0 && df$o <= o)))
+    expect_true(all( is.na(df$o) | (df$o >= 0 & df$o <= o)))
 })
 
 test_that("Generate optimization data (only UNSAT and UNK answers)", {
@@ -52,5 +52,5 @@ test_that("Generate optimization data (only UNSAT and UNK answers)", {
     expect_equal(length(unique(df$a)), n)
     expect_equal(length(unique(df$i)), m)
     expect_true(all( df$s == "UNSAT" | df$s == "UNK"))
-    expect_true(all( is.na(df$o) || (df$o >= 0 && df$o <= o)))
+    expect_true(all( is.na(df$o) | (df$o >= 0 & df$o <= o)))
 })
