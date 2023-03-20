@@ -1,3 +1,5 @@
+#' Build a contingency table
+#'
 #' The function uses the cross-classifying factors to build a contingency table of the counts at each combination of factor levels for two subsets of the data.
 #'
 #' @param data data frame of benchmarks results.
@@ -13,7 +15,6 @@
 #'
 #' @export
 #' @examples
-#'
 #' df <- expand.grid(a =c("A", "B", "C") , i = c("a", "b"), s = as.factor(c("OPT", "SAT")), t = 1)
 #' ct <- CrossTable(df, x = "A", y = "B")
 #'
