@@ -14,9 +14,9 @@
 #' @examples
 #' data <- GenerateOptiData(n = 3, m = 10, p = 2)
 #' PlotScatterRatios(data, "A", colX = "m1", colY = "m2")
-PlotScatterRatios <- function(data, x, y = NA, colX, colY, colA = "a", colI = "i", colS = "s", minXY = -Inf)  {
+PlotScatterRatios <- function(data, x, y = NA, colX, colY, colA = "a", colI = "i", colS = "s", minXY = -Inf, textSize = 20, pointSize = 5)  {
     ## Merge data and compute the cross table
-    li <- CrossTable(data, x, y, colA, colI, colS, cols = c(colA, colX, colY), tableGrob = TRUE)
+    li <- CrossTable(data, x, y, colA, colI, colS, cols = c(colA, colX, colY), tableGrob = TRUE, tableGrobCex = 1.25)
     df <- li$frame
 
     ## Compute ratio for each dimension of the plot
@@ -43,7 +43,7 @@ PlotScatterRatios <- function(data, x, y = NA, colX, colY, colA = "a", colI = "i
     }
     ## Decorate the plot
     plot + ggtitle(sprintf('%s / %s', x, namey)) +
-        geom_point(size=5)  + theme(text = element_text(size=20)) +
+        geom_point(size= pointSize)  + theme(text = element_text(size = textSize)) +
         scale_x_continuous(trans='log10' , limits = xlim) +
         scale_y_continuous(trans='log10', limits = ylim) +
         annotation_custom(li$grob, xmin = log10(xlim[2])/10, ymax =  log10(ylim[1])/10)

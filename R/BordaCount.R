@@ -5,6 +5,8 @@
 #' @param colI name of the column with the instance identifiers.
 #' @param cols names of columns used for ranking based on lexicographic comparison.
 #'
+#' @return a data frame of the rankings
+#'
 #' @section References:
 #' * https://en.wikipedia.org/wiki/Borda_count
 #'
@@ -20,6 +22,7 @@
 BordaCount <- function(data, colI, colA, cols) {
     ## Rank according to the cols
     Ranking <- function(x) cbind(x[ , colA], rank = Rank(x[ , cols], decreasing = TRUE))
+    ## TODO Add default values for arguments
 
     ## Compute the ranking for each colI
     x <- data %>%
