@@ -1,3 +1,4 @@
+#' @export
 #' @examples
 #' status <- c("OPT", "OPTIMUM", "SAT", "SATISFIABLE", "UNSAT", "UNSATISFIABLE", "UNKNWON", "TIMEOUT")
 #' AsStatusFactor(status)
